@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import store from '../../redux/store'
 //引入action,专门用于创建action对象
-import {createIncreamentAcrion,creatDecreamentAcrion} from '../../redux/count_action'
+import {createIncreamentAction,creatDecreamentAction,createIncreamentAsyncAction} from '../../redux/count_action'
 
 export default class Count extends Component {
 
     //加法
     increment =()=> {
         const {value} = this.selectNumber
-        store.dispatch(createIncreamentAcrion(value*1))
+        store.dispatch(createIncreamentAction(value*1))
     }
     //减法
     decrement =()=> {
         const {value} = this.selectNumber
-        store.dispatch(creatDecreamentAcrion(value*1))
+        store.dispatch(creatDecreamentAction(value*1))
 
     }
     //奇数再加
@@ -21,15 +21,13 @@ export default class Count extends Component {
         const {value} = this.selectNumber
         const count = store.getState()
         if(count%2!==0){
-            store.dispatch(createIncreamentAcrion(value*1))
+            store.dispatch(createIncreamentAction(value*1))
         }
         
     }
     incrementAsync =()=> {
         const {value} = this.selectNumber
-        setTimeout(() => {
-            store.dispatch(createIncreamentAcrion(value*1))
-        },1000)
+        store.dispatch(createIncreamentAsyncAction(value*1,500))
     }
     render() {
         console.log(store)
