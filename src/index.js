@@ -6,5 +6,5 @@ import store from './redux/store'
 ReactDOM.render(<App />,document.getElementById('root'));
 
 store.subscribe(() => {
-    ReactDOM.render(ReactDOM.render(<App />, document.getElementById('root')))
+    ReactDOM.render(<App />, document.getElementById('root'));
 })
