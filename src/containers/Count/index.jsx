@@ -15,16 +15,6 @@ import {connect} from 'react-redux'
 // 使用从connect()()创建并暴露一个Count的容器组件
 export default connect(
     state => ({count:state}),
-    //mapDispatchToProps
-    /* dispatch => (
-        {
-            increment:number=>dispatch(createIncrementAction(number)),
-            decrement:number=>dispatch(createDecrementAction(number)),
-            incrementAsync:(number,time)=>dispatch(createIncrementAsyncAction(number,time))
-        }
-    ) */
-
-    //mapDispatchToProps的简写
     {
         increment:createIncrementAction,
         decrement:createDecrementAction,
